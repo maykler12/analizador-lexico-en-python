@@ -1,0 +1,133 @@
+print("\nANALIZADOR LEXICO")
+print("====================\n")
+
+file = open("ready.py")
+
+operators = {
+'=' : 'Igual',
+'+' : 'Suma',
+'-' : 'Resta',
+'/' : 'Division',
+'*' : 'Multiplicacion',
+'<' : 'Menor que',
+'>' : 'Mayor que' 
+}
+operators_key = operators.keys()
+
+numero = {
+'0' : '0',
+'1' : '1',
+'2' : '2',
+'3' : '3',
+'4' : '4',
+'5' : '5',
+'6' : '6',
+'7' : '7',
+'8' : '8',
+'9' : '9'
+}
+numero_key = numero.keys()
+
+reservada = {
+'int' : 'INT',
+'return' : 'RETURN',
+'void' : 'VOID',
+'for' : 'FOR',
+'float': 'WHILE' , 
+'char' : 'CHAR', 
+'long' : 'LONG',
+'while': 'WHILE',
+'do': 'DO',
+'if': 'IF',
+'else': 'ELSE',
+'cout': 'COUT',
+ }
+reservada_key = reservada.keys()
+
+punctuation_symbol = { 
+':' : 'Dos puntos', 
+';' : 'Punto y coma', 
+'.' : 'Punto' , 
+',' : 'Coma',
+'(' : 'abrir Pareintesis ',
+')' : 'cerrar pareintesis',
+'[' : 'abrir corchete ',
+']' : 'cerrar corchete.',
+'{' : 'abrir llave',
+'}' : 'cerrar llave',
+'!' : 'negacion'
+}
+punctuation_symbol_key = punctuation_symbol.keys()
+
+identificador = { 
+'a' : 'id', 
+'b' : 'id', 
+'c' : 'id' , 
+'d' : 'id',
+'e' : 'id',
+'f' : 'id',
+'g' : 'id',
+'h' : 'id',
+'i' : 'id',
+'j' : 'id',
+'k' : 'id',
+'l' : 'id',
+'m' : 'id',
+'n' : 'id',
+'o' : 'id',
+'p' : 'id',
+'q' : 'id',
+'r' : 'id',
+'s' : 'id',
+'t' : 'id',
+'u' : 'id',
+'v' : 'id',
+'w' : 'id',
+'x' : 'id',
+'y' : 'id',
+'z' : 'id',
+}
+identificador_key = identificador.keys()
+
+coment = {
+    '#': 'Linia',
+    '"""': 'Bloque'
+}
+coment_key = coment.keys()
+vacio = {
+    '': 'vacio',
+}
+vacio_key = vacio.keys()
+
+dataFlag = False
+
+a=file.read()
+
+count=0
+program = a.split("\n")
+for line in program:
+    count = count + 1
+    print("linea#" , count, "\n" , line)
+
+    tokens=line.split(' ')
+    print("Los Tokens son \n" , tokens, "\n")
+    print("Linea#", count, "Propiedades \n")
+    for token in tokens:
+        if token in operators_key:
+            print(token, "El operador es \n", operators[token], "\n")
+        if token in reservada_key:
+            print(token,"Es palabra reservada \n", reservada[token], "\n")
+        if token in punctuation_symbol_key:
+            print (token, "Es un símbolo   \n" , punctuation_symbol[token], "\n")
+        if token in identificador_key:
+            print (token, "Es el identificador  \n" , identificador[token], "\n")
+        if token in numero_key:
+            print (token, " Es un digito \n", numero[token], "\n")
+        if token in coment_key:
+            print (token, " Es un comentario \n", coment[token], "\n")
+        if token in vacio_key:
+            print (token, " Es \n", vacio[token], "\n")
+
+           
+    dataFlag=False
+    print("_ _ _ _ _ _ _ _ _ _ _ _ _ _ _  _") 
